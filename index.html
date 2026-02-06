@@ -1,23 +1,22 @@
 <!DOCTYPE html>
 <html lang="en" class="scroll-smooth">
 <head>
-
     <script>
-!function(f,b,e,v,n,t,s)
-{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-n.callMethod.apply(n,arguments):n.queue.push(arguments)};
-if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
-n.queue=[];t=b.createElement(e);t.async=!0;
-t.src=v;s=b.getElementsByTagName(e)[0];
-s.parentNode.insertBefore(t,s)}(window, document,'script',
-'https://connect.facebook.net/en_US/fbevents.js');
-fbq('init', '2665028827188880');
-fbq('track', 'PageView');
-</script>
-<noscript><img height="1" width="1" style="display:none"
-src="https://www.facebook.com/tr?id=2665028827188880&ev=PageView&noscript=1"
-/></noscript>
-<meta charset="UTF-8">
+        !function(f,b,e,v,n,t,s)
+        {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+        n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+        if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+        n.queue=[];t=b.createElement(e);t.async=!0;
+        t.src=v;s=b.getElementsByTagName(e)[0];
+        s.parentNode.insertBefore(t,s)}(window, document,'script',
+        'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '2665028827188880');
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=2665028827188880&ev=PageView&noscript=1"
+    /></noscript>
+    <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ShopifyDevs | High-Performance Store Architecture</title>
     
@@ -37,10 +36,10 @@ src="https://www.facebook.com/tr?id=2665028827188880&ev=PageView&noscript=1"
                     },
                     colors: {
                         brand: {
-                            bg: '#09090b', // Zinc 950
-                            surface: '#18181b', // Zinc 900
-                            accent: '#34d399', // Emerald 400
-                            accentGlow: '#059669', // Emerald 600
+                            bg: '#09090b', 
+                            surface: '#18181b', 
+                            accent: '#34d399', 
+                            accentGlow: '#059669', 
                         }
                     },
                     animation: {
@@ -75,7 +74,6 @@ src="https://www.facebook.com/tr?id=2665028827188880&ev=PageView&noscript=1"
     </script>
 
     <style>
-        /* Custom Scrollbar */
         ::-webkit-scrollbar { width: 6px; }
         ::-webkit-scrollbar-track { background: #09090b; }
         ::-webkit-scrollbar-thumb { background: #334155; border-radius: 10px; }
@@ -87,13 +85,6 @@ src="https://www.facebook.com/tr?id=2665028827188880&ev=PageView&noscript=1"
             overflow-x: hidden;
         }
 
-        /* Ambient Background Glows */
-        .ambient-glow {
-            background: radial-gradient(circle at center, rgba(16, 185, 129, 0.15) 0%, rgba(0, 0, 0, 0) 70%);
-            pointer-events: none;
-        }
-
-        /* Glassmorphism Cards */
         .glass-panel {
             background: rgba(24, 24, 27, 0.6);
             backdrop-filter: blur(16px);
@@ -102,17 +93,12 @@ src="https://www.facebook.com/tr?id=2665028827188880&ev=PageView&noscript=1"
             box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
         }
 
-        /* Text Gradient */
         .text-gradient {
             background: linear-gradient(135deg, #34d399 0%, #22d3ee 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
 
-        /* Marquee Animation */
-        .marquee-container {
-            mask-image: linear-gradient(to right, transparent, black 20%, black 80%, transparent);
-        }
         .marquee-content {
             animation: scroll 40s linear infinite;
         }
@@ -121,14 +107,6 @@ src="https://www.facebook.com/tr?id=2665028827188880&ev=PageView&noscript=1"
             100% { transform: translateX(-50%); }
         }
 
-        /* Form Input Styling */
-        .input-group {
-            position: relative;
-        }
-        .input-field:focus ~ .input-border {
-            width: 100%;
-            left: 0;
-        }
         .input-border {
             position: absolute;
             bottom: 0;
@@ -138,57 +116,45 @@ src="https://www.facebook.com/tr?id=2665028827188880&ev=PageView&noscript=1"
             background: #34d399;
             transition: all 0.3s ease;
         }
-
-        /* Staggered Entry Animation Helper */
-        .delay-100 { animation-delay: 100ms; }
-        .delay-200 { animation-delay: 200ms; }
-        .delay-300 { animation-delay: 300ms; }
-        .delay-400 { animation-delay: 400ms; }
+        .input-field:focus ~ .input-border {
+            width: 100%;
+            left: 0;
+        }
     </style>
 </head>
 <body class="antialiased selection:bg-brand-accent selection:text-brand-bg">
 
     <div class="fixed inset-0 z-0 overflow-hidden pointer-events-none">
-        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-emerald-500/20 rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob"></div>
-        <div class="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-blue-500/20 rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob" style="animation-delay: 2s"></div>
-        <div class="absolute bottom-[-10%] left-[20%] w-[600px] h-[600px] bg-purple-500/10 rounded-full mix-blend-screen filter blur-[100px] opacity-30 animate-blob" style="animation-delay: 4s"></div>
+        <div class="absolute top-[-10%] left-[-10%] w-[500px] h-[500px] bg-emerald-500/20 rounded-full filter blur-[100px] opacity-30 animate-blob"></div>
+        <div class="absolute top-[20%] right-[-10%] w-[400px] h-[400px] bg-blue-500/20 rounded-full filter blur-[100px] opacity-30 animate-blob" style="animation-delay: 2s"></div>
         <div class="absolute inset-0 bg-[url('https://grainy-gradients.vercel.app/noise.svg')] opacity-20"></div>
-        <div class="absolute inset-0" style="background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px); background-size: 50px 50px;"></div>
     </div>
 
-    <nav class="fixed w-full z-50 top-0 transition-all duration-300 border-b border-white/5 bg-brand-bg/80 backdrop-blur-md">
+    <nav class="fixed w-full z-50 top-0 border-b border-white/5 bg-brand-bg/80 backdrop-blur-md">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
             <div class="flex-shrink-0 cursor-pointer group">
-                <span class="font-heading font-bold text-2xl tracking-tight text-white group-hover:opacity-90 transition">
+                <span class="font-heading font-bold text-2xl tracking-tight text-white">
                     Shopify<span class="text-brand-accent">Devs</span><span class="text-brand-accent">.</span>
                 </span>
             </div>
-            <div class="hidden md:flex items-center space-x-8">
-                <a href="#results" class="text-sm font-medium text-gray-300 hover:text-white transition relative group">
-                    Portfolio
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="#services" class="text-sm font-medium text-gray-300 hover:text-white transition relative group">
-                    Services
-                    <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-brand-accent transition-all duration-300 group-hover:w-full"></span>
-                </a>
-                <a href="https://wa.me/917887488000" target="_blank" class="relative inline-flex items-center justify-center px-6 py-2.5 overflow-hidden font-medium text-brand-bg transition duration-300 ease-out border border-brand-accent rounded-full shadow-md group">
+            <div class="flex items-center space-x-4 md:space-x-8">
+                <a href="#results" class="hidden md:block text-sm font-medium text-gray-300 hover:text-white transition">Portfolio</a>
+                <a href="#contact-form" class="relative inline-flex items-center justify-center px-5 py-2 overflow-hidden font-medium text-brand-bg transition duration-300 ease-out border border-brand-accent rounded-full group">
                     <span class="absolute inset-0 flex items-center justify-center w-full h-full text-white duration-300 -translate-x-full bg-brand-accent group-hover:translate-x-0 ease">
-                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M.057 24l1.687-6.163c-1.041-1.804-1.588-3.849-1.587-5.946.003-6.556 5.338-11.891 11.893-11.891 3.181.001 6.167 1.24 8.413 3.488 2.245 2.248 3.481 5.236 3.48 8.414-.003 6.557-5.338 11.892-11.893 11.892-1.99-.001-3.951-.5-5.688-1.448l-6.305 1.654zm6.597-3.807c1.676.995 3.276 1.591 5.392 1.592 5.448 0 9.886-4.434 9.889-9.885.002-5.462-4.415-9.89-9.881-9.892-5.452 0-9.887 4.434-9.889 9.884-.001 2.225.651 3.891 1.746 5.634l-.999 3.648 3.742-.981zm11.387-5.464c-.074-.124-.272-.198-.57-.347-.297-.149-1.758-.868-2.031-.967-.272-.099-.47-.149-.669.149-.198.297-.768.967-.941 1.165-.173.198-.347.223-.644.074-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.297-.347.446-.521.151-.172.2-.296.3-.495.099-.198.05-.372-.025-.521-.075-.148-.669-1.611-.916-2.206-.242-.579-.487-.501-.669-.51l-.57-.01c-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.095 3.2 5.076 4.487.709.306 1.263.489 1.694.626.712.226 1.36.194 1.872.118.571-.085 1.758-.719 2.006-1.413.248-.695.248-1.29.173-1.414z"/></svg>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                     </span>
-                    <span class="absolute inset-0 flex items-center justify-center w-full h-full text-brand-bg bg-brand-accent transition-all duration-300 transform group-hover:translate-x-full ease">WhatsApp Now</span>
-                    <span class="relative invisible">WhatsApp Now</span>
+                    <span class="absolute inset-0 flex items-center justify-center w-full h-full text-brand-bg bg-brand-accent transition-all duration-300 transform group-hover:translate-x-full ease">Start Project</span>
+                    <span class="relative invisible">Start Project</span>
                 </a>
             </div>
         </div>
     </nav>
 
-    <section class="relative pt-32 pb-20 lg:pt-48 lg:pb-32 px-4">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-16 items-center">
+    <section class="relative pt-24 pb-12 lg:pt-48 lg:pb-32 px-4">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-start">
             
-            <div class="lg:col-span-7 space-y-8 text-center lg:text-left relative z-10">
-                
-                <div class="animate-fade-up opacity-0 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm hover:bg-white/10 transition cursor-default">
+            <div class="lg:col-span-7 space-y-6 text-center lg:text-left relative z-10">
+                <div class="animate-fade-up opacity-0 inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/5 border border-white/10 backdrop-blur-sm">
                     <span class="relative flex h-2.5 w-2.5">
                         <span class="animate-ping absolute inline-flex h-full w-full rounded-full bg-brand-accent opacity-75"></span>
                         <span class="relative inline-flex rounded-full h-2.5 w-2.5 bg-brand-accent"></span>
@@ -196,198 +162,138 @@ src="https://www.facebook.com/tr?id=2665028827188880&ev=PageView&noscript=1"
                     <span class="text-xs font-semibold tracking-wider uppercase text-gray-300">Accepting Projects for Q1 2026</span>
                 </div>
                 
-                <h1 class="animate-fade-up delay-100 opacity-0 font-heading text-5xl sm:text-6xl lg:text-7xl font-bold leading-[1.1] tracking-tight text-white">
+                <h1 class="animate-fade-up delay-100 opacity-0 font-heading text-4xl sm:text-6xl lg:text-7xl font-bold leading-tight text-white">
                     Code That Converts.<br>
                     <span class="text-gradient">Performance First.</span>
                 </h1>
                 
-                <p class="animate-fade-up delay-200 opacity-0 text-lg md:text-xl text-gray-400 max-w-2xl font-light leading-relaxed mx-auto lg:mx-0">
+                <p class="animate-fade-up delay-200 opacity-0 text-lg text-gray-400 max-w-2xl font-light mx-auto lg:mx-0">
                     We engineer high-velocity Shopify experiences for premium D2C brands. Stop losing customers to slow load times.
                 </p>
 
-                <div class="animate-fade-up delay-300 opacity-0 pt-4 flex flex-col sm:flex-row items-center lg:justify-start justify-center gap-8 text-gray-400">
-                    <div class="flex items-center gap-3">
-                        <div class="text-2xl font-bold text-white font-heading">0.8s</div>
-                        <div class="text-xs uppercase tracking-wide leading-tight">Avg Load<br>Time</div>
+                <div class="animate-fade-up delay-300 opacity-0 flex flex-col sm:flex-row gap-4 justify-center lg:justify-start pt-4">
+                    <a href="#contact-form" class="px-8 py-4 bg-brand-accent text-brand-bg font-bold rounded-xl hover:bg-emerald-400 transition-all flex items-center justify-center gap-2">
+                        Get Your Custom Roadmap
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </a>
+                </div>
+
+                <div class="animate-fade-up delay-400 opacity-0 pt-8 flex flex-wrap items-center lg:justify-start justify-center gap-6 text-gray-400">
+                    <div class="flex items-center gap-2">
+                        <div class="text-xl font-bold text-white font-heading">0.8s</div>
+                        <div class="text-[10px] uppercase tracking-wide">Avg Load</div>
                     </div>
-                    <div class="w-px h-8 bg-gray-800 hidden sm:block"></div>
-                    <div class="flex items-center gap-3">
-                        <div class="text-2xl font-bold text-white font-heading">2x</div>
-                        <div class="text-xs uppercase tracking-wide leading-tight">Conversion<br>Lift</div>
+                    <div class="flex items-center gap-2">
+                        <div class="text-xl font-bold text-white font-heading">2x</div>
+                        <div class="text-[10px] uppercase tracking-wide">Conv. Lift</div>
                     </div>
-                    <div class="w-px h-8 bg-gray-800 hidden sm:block"></div>
-                    <div class="flex -space-x-3">
-                        <img class="w-10 h-10 rounded-full border-2 border-brand-bg" src="https://i.pravatar.cc/100?img=33" alt="">
-                        <img class="w-10 h-10 rounded-full border-2 border-brand-bg" src="https://i.pravatar.cc/100?img=47" alt="">
-                        <img class="w-10 h-10 rounded-full border-2 border-brand-bg" src="https://i.pravatar.cc/100?img=12" alt="">
-                        <div class="w-10 h-10 rounded-full border-2 border-brand-bg bg-gray-800 flex items-center justify-center text-xs font-medium text-white">+40</div>
+                    <div class="flex -space-x-2">
+                        <img class="w-8 h-8 rounded-full border-2 border-brand-bg" src="https://i.pravatar.cc/100?img=33">
+                        <img class="w-8 h-8 rounded-full border-2 border-brand-bg" src="https://i.pravatar.cc/100?img=47">
+                        <div class="w-8 h-8 rounded-full border-2 border-brand-bg bg-gray-800 flex items-center justify-center text-[10px]">+40</div>
                     </div>
                 </div>
             </div>
 
-            <div class="lg:col-span-5 relative z-10 animate-fade-up delay-300 opacity-0">
-                <div class="glass-panel rounded-2xl p-1 md:p-1 relative animate-float">
+            <div id="contact-form" class="lg:col-span-5 relative z-10 animate-fade-up delay-300 opacity-0 scroll-mt-24">
+                <div class="glass-panel rounded-2xl p-1 relative">
                     <div class="bg-brand-bg/95 rounded-xl p-6 md:p-8 border border-white/5 relative overflow-hidden">
-                        
                         <div class="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-brand-accent/0 via-brand-accent/50 to-brand-accent/0"></div>
-
                         <div class="mb-6">
                             <h2 class="font-heading text-2xl font-bold text-white mb-1">Scale Your Brand</h2>
-                            <p class="text-sm text-gray-500">Get a custom roadmap within 24 hours.</p>
+                            <p class="text-sm text-gray-500">Free roadmap delivered in 24 hours.</p>
                         </div>
                         
-                        <form action="https://formsubmit.co/solankisahil202006@gmail.com" method="POST" class="space-y-5">
-                            <input type="hidden" name="_subject" value="New Shopify Development Lead">
-                            <input type="hidden" name="_next" value="https://formsubmit.co/thanks">
+                        <form action="https://formsubmit.co/solankisahil202006@gmail.com" method="POST" class="space-y-4">
                             <input type="hidden" name="_captcha" value="false">
-
-                            <div class="input-group">
-                                <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5">Your Name</label>
-                                <input type="text" name="Your Name" required class="input-field w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:bg-white/10 transition duration-300 text-sm" placeholder="John Doe">
-                                <span class="input-border"></span>
+                            <div class="relative">
+                                <label class="block text-[10px] font-medium text-gray-400 uppercase mb-1">Your Name</label>
+                                <input type="text" name="Name" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:bg-white/10 transition" placeholder="John Doe">
                             </div>
-
-                            <div class="input-group">
-                                <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5">WhatsApp Number</label>
-                                <input type="tel" name="WhatsApp Number" required class="input-field w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:bg-white/10 transition duration-300 text-sm" placeholder="+91 9XXXXXXXXX">
-                                <span class="input-border"></span>
+                            <div class="relative">
+                                <label class="block text-[10px] font-medium text-gray-400 uppercase mb-1">WhatsApp Number</label>
+                                <input type="tel" name="WhatsApp" required class="w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white text-sm focus:outline-none focus:bg-white/10 transition" placeholder="+91 9XXXXXXXXX">
                             </div>
-
-                            <div class="input-group">
-                                <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5">Project Budget</label>
-                                <select name="Project Budget" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-white focus:outline-none focus:bg-white/10 transition duration-300 text-sm appearance-none">
-                                    <option value="" class="bg-gray-900 text-gray-500">Select budget range</option>
-                                    <option value="Under ₹10,000" class="bg-gray-900">Under ₹10,000</option>
-                                    <option value="₹10,000 - ₹50,000" class="bg-gray-900">₹10,000 - ₹50,000</option>
-                                    <option value="₹50,000 - ₹1,00,000" class="bg-gray-900">₹50,000 - ₹1,00,000</option>
-                                    <option value="₹1,00,000+" class="bg-gray-900">₹1,00,000+</option>
-                                </select>
+                            <div class="grid grid-cols-2 gap-4">
+                                <div>
+                                    <label class="block text-[10px] font-medium text-gray-400 uppercase mb-1">Budget</label>
+                                    <select name="Budget" required class="w-full bg-white/5 border border-white/10 rounded-lg px-2 py-3 text-white text-sm focus:outline-none appearance-none">
+                                        <option value="" class="bg-zinc-900">Select Range</option>
+                                        <option value="Under 10k" class="bg-zinc-900">Under ₹10k</option>
+                                        <option value="10k-50k" class="bg-zinc-900">₹10k - ₹50k</option>
+                                        <option value="50k+" class="bg-zinc-900">₹50k+</option>
+                                    </select>
+                                </div>
+                                <div>
+                                    <label class="block text-[10px] font-medium text-gray-400 uppercase mb-1">Timeline</label>
+                                    <select name="Timeline" required class="w-full bg-white/5 border border-white/10 rounded-lg px-2 py-3 text-white text-sm focus:outline-none appearance-none">
+                                        <option value="ASAP" class="bg-zinc-900">ASAP</option>
+                                        <option value="2-3 Weeks" class="bg-zinc-900">2-3 Weeks</option>
+                                    </select>
+                                </div>
                             </div>
-
-                            <div class="input-group">
-                                <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5">Project Timeline</label>
-                                <select name="Project Timeline" required class="w-full bg-white/5 border border-white/10 rounded-lg px-3 py-3 text-white focus:outline-none focus:bg-white/10 transition duration-300 text-sm appearance-none">
-                                    <option value="" class="bg-gray-900 text-gray-500">Select timeline</option>
-                                    <option value="ASAP" class="bg-gray-900">ASAP</option>
-                                    <option value="2-3 Weeks" class="bg-gray-900">2–3 Weeks</option>
-                                    <option value="1 Month+" class="bg-gray-900">1 Month+</option>
-                                </select>
-                            </div>
-
-                            <div class="input-group">
-                                <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5">Current Website (if any)</label>
-                                <input type="url" name="Current Website" class="input-field w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:bg-white/10 transition duration-300 text-sm" placeholder="https://yourstore.com (optional)">
-                                <span class="input-border"></span>
-                            </div>
-
-                            <div class="input-group">
-                                <label class="block text-xs font-medium text-gray-400 uppercase tracking-wider mb-1.5">Short Brief</label>
-                                <textarea name="Short Brief" rows="3" class="input-field w-full bg-white/5 border border-white/10 rounded-lg px-4 py-3 text-white placeholder-gray-600 focus:outline-none focus:bg-white/10 transition duration-300 text-sm" placeholder="Goal, must-have features, integrations (e.g. subscriptions, wholesale), or other notes"></textarea>
-                                <span class="input-border"></span>
-                            </div>
-
-                            <button type="submit" class="group relative w-full overflow-hidden rounded-lg bg-brand-accent p-4 text-center font-bold text-brand-bg transition-all hover:bg-emerald-400 focus:outline-none focus:ring-2 focus:ring-emerald-400 focus:ring-offset-2 focus:ring-offset-gray-900">
-                                <span class="relative z-10 flex items-center justify-center gap-2">
-                                    Start Project
-                                    <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
-                                </span>
-                                <div class="absolute inset-0 -translate-x-full bg-white/30 transition-transform group-hover:translate-x-0 duration-500"></div>
+                            <button type="submit" class="w-full rounded-lg bg-brand-accent p-4 text-center font-bold text-brand-bg hover:bg-emerald-400 transition-all flex items-center justify-center gap-2">
+                                Start Project
+                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
                             </button>
                         </form>
-                        </div>
+                    </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <section id="results" class="py-12 border-y border-white/5 bg-black/20 backdrop-blur-sm relative overflow-hidden">
-        <div class="marquee-container max-w-full mx-auto relative z-10">
-            <div class="flex items-center gap-16 marquee-content whitespace-nowrap opacity-60 hover:opacity-100 transition duration-500 cursor-pointer">
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">VELORA</span>
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">LUMEN & CO</span>
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">AURA WEAR</span>
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">NOVA SKIN</span>
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">VANTAGE</span>
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">PURE BLOOM</span>
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">VELORA</span>
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">LUMEN & CO</span>
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">AURA WEAR</span>
-                <span class="text-3xl font-heading font-bold text-transparent bg-clip-text bg-gradient-to-b from-white to-white/50">NOVA SKIN</span>
+    <section id="results" class="py-12 border-y border-white/5 bg-black/20 backdrop-blur-sm">
+        <div class="marquee-container overflow-hidden">
+            <div class="flex items-center gap-16 marquee-content whitespace-nowrap opacity-50">
+                <span class="text-2xl font-heading font-bold text-white">VELORA</span>
+                <span class="text-2xl font-heading font-bold text-white">LUMEN & CO</span>
+                <span class="text-2xl font-heading font-bold text-white">AURA WEAR</span>
+                <span class="text-2xl font-heading font-bold text-white">NOVA SKIN</span>
+                <span class="text-2xl font-heading font-bold text-white">VELORA</span>
+                <span class="text-2xl font-heading font-bold text-white">LUMEN & CO</span>
             </div>
         </div>
     </section>
 
     <section id="services" class="py-24 px-4 max-w-7xl mx-auto">
         <div class="text-center mb-16">
-            <h2 class="text-3xl md:text-4xl font-heading font-bold text-white mb-4">Architecture, Not Just Design</h2>
+            <h2 class="text-3xl font-heading font-bold text-white mb-4">Architecture, Not Just Design</h2>
             <p class="text-gray-400">We build systems that scale with your revenue.</p>
         </div>
-        
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
-            <div class="glass-panel p-8 rounded-2xl group hover:border-brand-accent/30 transition duration-300">
-                <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path></svg>
-                </div>
+            <div class="glass-panel p-8 rounded-2xl">
                 <h3 class="text-xl font-bold text-white mb-2">Speed Optimization</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Sub-second load times. We strip the bloat and optimize the core to improve Google Core Web Vitals.</p>
+                <p class="text-sm text-gray-400 leading-relaxed">Sub-second load times. We strip the bloat to improve Google Core Web Vitals.</p>
             </div>
-            
-            <div class="glass-panel p-8 rounded-2xl group hover:border-brand-accent/30 transition duration-300">
-                <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 18h.01M8 21h8a2 2 0 002-2V5a2 2 0 00-2-2H8a2 2 0 00-2 2v14a2 2 0 002 2z"></path></svg>
-                </div>
+            <div class="glass-panel p-8 rounded-2xl">
                 <h3 class="text-xl font-bold text-white mb-2">Mobile-First UI</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">70% of traffic is mobile. We design thumb-friendly interfaces that reduce friction at checkout.</p>
+                <p class="text-sm text-gray-400 leading-relaxed">Thumb-friendly interfaces designed for the 70% of traffic on mobile.</p>
             </div>
-
-            <div class="glass-panel p-8 rounded-2xl group hover:border-brand-accent/30 transition duration-300">
-                <div class="w-12 h-12 bg-white/5 rounded-lg flex items-center justify-center text-brand-accent mb-6 group-hover:scale-110 transition duration-300">
-                    <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>
-                </div>
+            <div class="glass-panel p-8 rounded-2xl">
                 <h3 class="text-xl font-bold text-white mb-2">CRO Focused</h3>
-                <p class="text-sm text-gray-400 leading-relaxed">Data-driven design decisions. Sticky add-to-carts, dynamic upsells, and trust signals.</p>
+                <p class="text-sm text-gray-400 leading-relaxed">Data-driven design. Sticky add-to-carts and dynamic upsells.</p>
             </div>
         </div>
     </section>
 
-    <footer class="border-t border-white/10 bg-black py-12 px-4">
-        <div class="max-w-7xl mx-auto flex flex-col md:flex-row justify-between items-center gap-8">
-            <div class="text-center md:text-left">
-                <span class="font-heading font-bold text-2xl text-white block mb-2">
-                    Shopify<span class="text-brand-accent">Devs</span>
-                </span>
-                <p class="text-xs text-gray-500">© 2026. All rights reserved.</p>
-            </div>
-            <div class="flex space-x-8 text-sm font-medium">
-                <a href="https://wa.me/917887488000" class="text-gray-400 hover:text-brand-accent transition">WhatsApp</a>
-                <a href="mailto:solankisahil202006@gmail.com" class="text-gray-400 hover:text-brand-accent transition">Email</a>
-                <a href="#" class="text-gray-400 hover:text-brand-accent transition">LinkedIn</a>
-            </div>
-        </div>
+    <footer class="border-t border-white/10 bg-black py-12 px-4 text-center">
+        <span class="font-heading font-bold text-xl text-white">Shopify<span class="text-brand-accent">Devs</span></span>
+        <p class="text-xs text-gray-500 mt-2">© 2026. All rights reserved.</p>
     </footer>
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Smooth reveal for elements
-            const observerOptions = {
-                root: null,
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-
-            const observer = new IntersectionObserver((entries, observer) => {
+            const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
                         entry.target.classList.add('animate-fade-up');
                         entry.target.classList.remove('opacity-0');
-                        observer.unobserve(entry.target);
                     }
                 });
-            }, observerOptions);
+            }, { threshold: 0.1 });
 
-            document.querySelectorAll('section > div').forEach((el) => {
-                // observer.observe(el); // Optional: if you want to animate scrolling down
-            });
+            document.querySelectorAll('.animate-fade-up').forEach((el) => observer.observe(el));
         });
     </script>
 </body>
